@@ -77,14 +77,14 @@ const handleDeleteUser = (userId) => {
     
       <div className="flex flex-wrap justify-center p-4">
         {currentUsers.map((user) => (
-          <div key={user.id} className="max-w-sm backdrop-blur-xl backdrop-brightness-105 rounded overflow-hidden shadow-lg m-4">
+          <div key={user.id} onClick={() => openDetailsPopup(user.id)} className="max-w-sm backdrop-blur-xl backdrop-brightness-105 rounded overflow-hidden shadow-lg m-4">
             <img className="w-full h-64 object-cover" src={user.image} alt={`${user.firstName} ${user.lastName}'s profile`} />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{`${user.firstName} ${user.lastName}`}</div>
               <p className="text-gray-700 text-base mb-2">Email: {user.email}</p>
               <p className="text-gray-700 text-base">Phone: {user.phone}</p>
             <div className='flex flex-row justify-center items-center'>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" onClick={()=>openDetailsPopup(user.id)}>Details</button>
+              
                 <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4" onClick={()=>handleDeleteUser(user.id)}>Delete</button>
             </div>
               </div>
